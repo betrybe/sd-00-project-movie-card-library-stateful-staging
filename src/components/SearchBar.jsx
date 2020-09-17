@@ -1,6 +1,21 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+function renderInput(bookmarkedOnly, onBookmarkedChange) {
+  return (
+    <label data-testid="checkbox-input-label" htmlFor="input">
+  Mostrar somente favoritos
+      <input
+        data-testid="checkbox-input"
+        type="checkbox"
+        checked={bookmarkedOnly}
+        onChange={onBookmarkedChange}
+      />
+
+    </label>
+  );
+}
+
 export default class SearchBar extends Component {
   render() {
     const {
@@ -19,16 +34,7 @@ export default class SearchBar extends Component {
           />
         </label>
 
-        <label data-testid="checkbox-input-label" htmlFor="input">
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
-
-        </label>
+        {renderInput(bookmarkedOnly, onBookmarkedChange)}
 
         <label data-testid="select-input-label" htmlFor="input">
           Filtrar por gênero
