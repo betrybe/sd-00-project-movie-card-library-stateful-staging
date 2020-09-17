@@ -16,6 +16,22 @@ function renderInput(bookmarkedOnly, onBookmarkedChange) {
   );
 }
 
+function rendergenre(selectedGenre, onSelectedGenreChange) {
+  return (
+    <label data-testid="select-input-label" htmlFor="input">
+  Filtrar por gênero
+      <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+        <option data-testid="select-option" value="">Todos</option>
+        <option data-testid="select-option" value="action">Ação</option>
+        <option data-testid="select-option" value="comedy">Comédia</option>
+        <option data-testid="select-option" value="thriller">Suspense</option>
+
+      </select>
+
+    </label>
+  );
+}
+
 export default class SearchBar extends Component {
   render() {
     const {
@@ -35,18 +51,7 @@ export default class SearchBar extends Component {
         </label>
 
         {renderInput(bookmarkedOnly, onBookmarkedChange)}
-
-        <label data-testid="select-input-label" htmlFor="input">
-          Filtrar por gênero
-          <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-
-          </select>
-
-        </label>
+        {rendergenre(selectedGenre, onSelectedGenreChange)}
 
       </form>
     );

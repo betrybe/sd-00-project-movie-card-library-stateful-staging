@@ -66,6 +66,32 @@ export default class AddMovie extends Component {
   }
 
 
+  button() {
+    return (
+      <button
+        data-testid="send-button"
+        type="button"
+        onClick={this.SubmitMovie}
+      >
+Adicionar filme
+
+      </button>
+    );
+  }
+
+  rendergenre(genre) {
+    return (
+      <label data-testid="genre-input-label" htmlFor="input">
+    Gênero
+        <select data-testid="genre-input" value={genre} id="genre" onChange={(e) => this.onChangeHandler(e, 'genre')}>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     const { storyline, rating, genre } = this.state;
     return (
@@ -81,22 +107,8 @@ export default class AddMovie extends Component {
           Avaliação
           <input data-testid="rating-input" type="number" value={rating} id="rating" onChange={(e) => this.onChangeHandler(e, 'rating')} />
         </label>
-        <label data-testid="genre-input-label" htmlFor="input">
-          Gênero
-          <select data-testid="genre-input" value={genre} id="genre" onChange={(e) => this.onChangeHandler(e, 'genre')}>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button
-          data-testid="send-button"
-          type="button"
-          onClick={this.SubmitMovie}
-        >
-Adicionar filme
-
-        </button>
+        {this.rendergenre(genre)}
+        {this.button()}
 
 
       </form>
