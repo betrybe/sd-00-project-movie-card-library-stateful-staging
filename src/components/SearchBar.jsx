@@ -38,10 +38,10 @@ export default class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  bookmarkedOnly: PropTypes.any,
-  onBookmarkedChange: PropTypes.any,
-  onSearchTextChange: PropTypes.any,
-  onSelectedGenreChange: PropTypes.any,
-  searchText: PropTypes.any,
-  selectedGenre: PropTypes.any,
+  bookmarkedOnly: PropTypes.number.isRequired,
+  onBookmarkedChange: PropTypes.number.isRequired,
+  onSearchTextChange: PropTypes.number.isRequired,
+  onSelectedGenreChange: PropTypes.number.isRequired,
+  searchText: PropTypes.number.isRequired,
+  selectedGenre: PropTypes.number.isRequired,
 };
